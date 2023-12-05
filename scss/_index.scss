@@ -1,0 +1,204 @@
+$font-title: "Courier New", "Courier", "monospace";
+$font-letra: "helvetica";
+$font-color: #f8f8f8;
+$back-color: #f8f8f8;
+$box-color: #ffe0ff;
+$box-borde: 15px;
+$box-color-agregar: a7a7a7;
+$box-sadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
+
+
+
+
+
+
+//--------------------------BANNER-------------------------------
+
+.banner {
+    width: 100%;
+    height: 600px;
+}
+
+
+//---------------------------PRODUCTOS--------------------------------
+
+#section_productos {
+    display: flex;
+    flex-direction: column;
+
+    p {
+        color: #89004f;
+    }
+
+    h6 {
+        color: #89004f;
+    }
+
+    h2 {
+        text-align: center;
+        margin: 50px;
+        color: #89004f;
+    }
+
+    .agregar {
+        width: 150px;
+        height: 70px;
+        background-color: rgb(246, 245, 245);
+        border-radius: 10px;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 5px;
+        box-shadow: $box-sadow;
+    }
+
+    .productos_top {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 100px;
+
+        .productos_top_box {
+            width: 250px;
+            height: 300px;
+            background-color: $box-color;
+            border-radius: $box-borde;
+            box-shadow: $box-sadow;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 25px;
+            align-items: center;
+            text-align: center;
+
+            .top {
+                font-size: 15px;
+            }
+
+            img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+    }
+
+    .productos_lima {
+        display: flex;
+        flex-direction: row;
+        gap: 100px;
+        justify-content: center;
+
+        .productos_lima_box {
+            width: 250px;
+            height: 300px;
+            background-color: $box-color;
+            border-radius: $box-borde;
+            box-shadow: $box-sadow;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            padding: 25px;
+            text-align: center;
+
+
+
+            img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+    }
+
+    .productos_secador {
+        display: flex;
+        flex-direction: row;
+        gap: 100px;
+        justify-content: center;
+
+        .productos_secador_box {
+            width: 250px;
+            height: 300px;
+            background-color: $box-color;
+            border-radius: $box-borde;
+            box-shadow: $box-sadow;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 25px;
+            align-items: center;
+            text-align: center;
+
+            img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+    }
+
+}
+
+
+
+
+
+//-------------------------------SUBSCRIPCION----------------------------
+
+.subscripcion {
+    background-color: #f5f5f5;
+    width: 70%;
+    height: 300px;
+    text-align: center;
+    margin-top: 100px;
+    box-shadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
+    margin-left: 270px;
+
+    .subscripcion_texto {
+        font-size: 1.5em;
+        padding: 15px;
+        font-family: 'Courier New', Courier, monospace;
+        color: #ccc;
+    }
+
+    textarea {
+        width: 95%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 1em;
+        resize: none;
+        align-items: center;
+    }
+
+}
+
+//------------------------------ENVIOS----------------------------------------
+.envios {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    height: 150px;
+    background-color: lightgray;
+    border-radius: 5px;
+    margin: 100px;
+
+    .envios_foto {
+        width: 100px;
+        height: 100px;
+    }
+
+    .envios_texto {
+        font-size: 1em;
+        font-family: 'Courier New', Courier, monospace;
+        color: black;
+        text-align: center;
+
+
+    }
+}
