@@ -16,8 +16,44 @@ $box-sadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
 
 .banner {
     width: 100%;
-    height: 600px;
+    height: auto;
+    margin-top: 30px;
 }
+
+.consulta {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 100px;
+
+    details {
+        width: 30%;
+        height: 150px;
+        background-color: #f6e8f2;
+        border-radius: 5px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: 'Times New Roman', Times, serif;
+        padding-top: 30px;
+        font-size: 25px;
+        text-decoration: wavy;
+        color: #89004f;
+        box-shadow: 3px 3px 5px 3px rgba(20, 20, 20, 0.2);
+
+        select {
+            font-weight: normal;
+            min-height: 1.2em;
+            padding: 0px 2px 1px;
+            white-space: nowrap;
+        }
+    }
+
+}
+
+
 
 
 //---------------------------PRODUCTOS--------------------------------
@@ -25,6 +61,7 @@ $box-sadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
 #section_productos {
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     p {
         color: #89004f;
@@ -37,32 +74,44 @@ $box-sadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
     h2 {
         text-align: center;
         margin: 50px;
-        color: #89004f;
+        font-size: 50px;
+        color: #ac7c98;
     }
 
     .agregar {
         width: 150px;
-        height: 70px;
-        background-color: rgb(246, 245, 245);
+        height: 50px;
+        background-color: #FAA9E4;
         border-radius: 10px;
-        font-size: 14px;
+        font-size: 15px;
         font-family: Arial, Helvetica, sans-serif;
-        padding: 5px;
+        padding: 7px;
+        padding-top: 12px;
         box-shadow: $box-sadow;
+
     }
 
     .productos_top {
+        width: 80%;
+        height: 650px;
+        background-color: #f6f0f0;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         gap: 100px;
+        margin-top: 100px;
+        border-radius: 15px;
+        box-shadow: $box-sadow;
+
+        .productos_top_art {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 90px;
+        }
 
         .productos_top_box {
-            width: 250px;
-            height: 300px;
-            background-color: $box-color;
-            border-radius: $box-borde;
-            box-shadow: $box-sadow;
+            margin-top: -100px;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -75,54 +124,79 @@ $box-sadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
             }
 
             img {
-                width: 100px;
-                height: 100px;
+                width: 300px;
+                height: 300px;
+                border-radius: 10px;
             }
         }
 
     }
 
     .productos_lima {
+        width: 80%;
+        height: 650px;
+        background-color: #f6f0f0;
         display: flex;
-        flex-direction: row;
-        gap: 100px;
+        flex-direction: column;
         justify-content: center;
+        gap: 100px;
+        margin-top: 100px;
+        border-radius: 15px;
+        box-shadow: $box-sadow;
+
+        .productos_lima_art {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 90px;
+
+        }
 
         .productos_lima_box {
-            width: 250px;
-            height: 300px;
-            background-color: $box-color;
-            border-radius: $box-borde;
-            box-shadow: $box-sadow;
+            margin-top: -100px;
             display: flex;
             flex-direction: column;
             gap: 10px;
-            align-items: center;
             padding: 25px;
+            align-items: center;
             text-align: center;
 
 
 
             img {
-                width: 100px;
-                height: 100px;
+                width: 300px;
+                height: auto;
+                border-radius: 10px;
+
             }
         }
 
     }
 
     .productos_secador {
+        width: 80%;
+        height: 650px;
+        background-color: #f6f0f0;
         display: flex;
-        flex-direction: row;
-        gap: 100px;
+        flex-direction: column;
         justify-content: center;
+        gap: 100px;
+        margin-top: 100px;
+        border-radius: 15px;
+        box-shadow: $box-sadow;
+
+        .productos_secador_art {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 90px;
+
+
+        }
+
 
         .productos_secador_box {
-            width: 250px;
-            height: 300px;
-            background-color: $box-color;
-            border-radius: $box-borde;
-            box-shadow: $box-sadow;
+            margin-top: -100px;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -131,14 +205,16 @@ $box-sadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
             text-align: center;
 
             img {
-                width: 100px;
-                height: 100px;
+                width: 300px;
+                height: auto;
+                border-radius: 10px;
+
             }
         }
 
     }
-
 }
+
 
 
 
@@ -147,58 +223,235 @@ $box-sadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
 //-------------------------------SUBSCRIPCION----------------------------
 
 .subscripcion {
-    background-color: #f5f5f5;
-    width: 70%;
+    background-color: #fee4f7;
+    width: 60%;
     height: 300px;
     text-align: center;
     margin-top: 100px;
     box-shadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
     margin-left: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .subscripcion_texto {
-        font-size: 1.5em;
+        font-size: 2em;
         padding: 15px;
         font-family: 'Courier New', Courier, monospace;
-        color: #ccc;
+        color: #f48080;
     }
 
-    textarea {
-        width: 95%;
-        height: 150px;
-        padding: 12px 20px;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        background-color: #f8f8f8;
-        font-size: 1em;
-        resize: none;
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
-    }
 
+        .formulario_nombre {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            justify-content: center;
+            color: #624646;
+        }
+
+        .formulario_mail {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            justify-content: center;
+            color: #624646;
+
+        }
+
+
+        .boton_enviar {
+            margin-top: 30px;
+            width: 130px;
+            height: 30px;
+            background-color: #f7f6f6;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+
+            p {
+                font-family: 'Times New Roman', Times, serif;
+                font-size: large;
+                color: #624646;
+
+            }
+
+        }
+    }
 }
+
+
+
+
+
+
 
 //------------------------------ENVIOS----------------------------------------
 .envios {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    width: 300px;
-    height: 150px;
-    background-color: lightgray;
-    border-radius: 5px;
+    align-items: center;
+    margin-bottom: 80px;
+    margin-top: 100px;
+    opacity: 0.6;
+
+    .envios_empresa {
+        border-right: 3px solid rgb(211, 206, 206);
+        padding-right: 80px;
+
+
+        .envios_foto {
+            width: 100px;
+            height: 100px;
+        }
+
+        .envios_texto {
+            font-family: helvetica;
+            font-size: 18px;
+            letter-spacing: 1px;
+            text-decoration: solid;
+            text-align: center;
+
+        }
+
+    }
+
+    .calcular_envio {
+        width: 200px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin-left: 60px;
+        margin-left: 60px;
+
+        .envios_ubicacion {
+            width: 100px;
+            height: auto;
+        }
+
+        P {
+            font-family: helvetica;
+            font-size: 18px;
+            letter-spacing: 1px;
+            text-decoration: solid;
+            text-align: center;
+
+        }
+
+    }
+
+    .pagos {
+        margin-left: 60px;
+        border-left: 3px solid rgb(211, 206, 206);
+        padding-left: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 120px;
+            height: 100px;
+        }
+
+        p {
+            font-family: helvetica;
+            font-size: 18px;
+            letter-spacing: 1px;
+            text-decoration: solid;
+            text-align: center;
+        }
+
+    }
+}
+
+/*------------------------------------------PREGUNTAS FECUENTES--------------------*/
+.preguntas_frecuentes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
     margin: 100px;
 
-    .envios_foto {
-        width: 100px;
-        height: 100px;
-    }
-
-    .envios_texto {
-        font-size: 1em;
-        font-family: 'Courier New', Courier, monospace;
-        color: black;
+    .preguntas_frecuentes_art {
+        width: 330px;
+        height: 250px;
+        border-left: 6px solid #89004f;
+        box-shadow: 0px 0px 10px 0px rgba(20, 20, 20, 0.2);
+        /*background-color: #f6f0f0;
+        box-shadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);*/
+        /*border-radius: 10px;*/
         text-align: center;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
 
+        h2 {
+            margin-top: 10px;
+            color: #89004f;
+            font-family: 'Times New Roman', Times, serif;
+            text-decoration: underline;
+            letter-spacing: 1.5px;
 
+        }
+
+        a {
+            text-decoration: none;
+            color: #89004f;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
+
+}
+
+/*------------------------------------COMO COMPRAR---------------*/
+#pasos_compra {
+    display: flex;
+    justify-content: center;
+
+    .como_comprar {
+        width: 70%;
+        height: 600px;
+        margin-top: 150px;
+        margin-bottom: 150px;
+        background-color: #f6f0f0;
+        box-shadow: $box-sadow;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        padding: 25px;
+
+
+        h2 {
+            text-align: center;
+            color: #89004f;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 40px;
+            margin-bottom: 30px;
+            text-decoration: underline;
+            letter-spacing: 1px;
+        }
+
+        ol {
+            margin-left: 30px;
+            color: #89004f;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+        }
+    }
+
 }
