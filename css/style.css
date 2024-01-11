@@ -55,217 +55,175 @@
   width: 100%;
   height: auto;
   margin-top: 30px;
+  align-items: center;
 }
 
-.consulta {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 100px;
-}
-.consulta details {
-  width: 30%;
-  height: 150px;
-  background-color: #f6e8f2;
-  border-radius: 5px;
-  text-align: center;
+.seccion1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+.seccion1 .subscribirse {
+  width: 60%;
+  height: 350px;
+  background-color: #89004f;
+  color: #f6e8f2;
+  border-radius: 10px;
+  margin: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.seccion1 .subscribirse p {
+  font-size: 30px;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+.seccion1 .subscribirse #formulario {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3px;
+  width: 60%;
+  justify-content: center;
+  text-align: center;
+}
+.seccion1 .subscribirse #formulario .enviarFormulario {
+  border-radius: 20px;
+  background-color: #f6e8f2;
+  color: #89004f;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-decoration: solid;
+  width: 35%;
+  margin-left: 180px;
+}
+.seccion1 .consulta {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  align-items: center;
+}
+.seccion1 .consulta details {
+  width: 400px;
+  height: 150px;
+  background-color: #f7bde6;
+  border-radius: 5px;
+  text-align: center;
   font-family: "Times New Roman", Times, serif;
   padding-top: 30px;
   font-size: 25px;
   text-decoration: wavy;
   color: #89004f;
   box-shadow: 3px 3px 5px 3px rgba(20, 20, 20, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.consulta details select {
+.seccion1 .consulta details .consultasMediosDePago {
   font-weight: normal;
   min-height: 1.2em;
   padding: 0px 2px 1px;
-  white-space: nowrap;
+  display: flex;
 }
 
-#section_productos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#section_productos p {
-  color: #89004f;
-}
-#section_productos h6 {
-  color: #89004f;
-}
-#section_productos h2 {
-  text-align: center;
-  margin: 50px;
-  font-size: 50px;
-  color: #ac7c98;
-}
-#section_productos .agregar {
-  width: 150px;
-  height: 50px;
-  background-color: #FAA9E4;
-  border-radius: 10px;
-  font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 7px;
-  padding-top: 12px;
-  box-shadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
-}
-#section_productos .productos_top {
-  width: 80%;
-  height: 650px;
-  background-color: #f6f0f0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 100px;
-  margin-top: 100px;
-  border-radius: 15px;
-  box-shadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
-}
-#section_productos .productos_top .productos_top_art {
+.compra {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 90px;
+  gap: 30px;
+  margin: 30px;
 }
-#section_productos .productos_top .productos_top_box {
-  margin-top: -100px;
+.compra .filtrar #filtrarProductos {
+  background-color: #89004f;
+  width: 100px;
+  color: #f9f4f8;
+  border: #0f0109;
+}
+
+.cuerpoProductos {
+  display: grid;
+  grid-template-columns: 85% 15%;
+  grid-row: auto;
+  grid-template-areas: "productos   carrito";
+}
+
+#contenedorProductos {
+  grid-area: productos;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#contenedorProductos .cardsProductos {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 25px;
   align-items: center;
-  text-align: center;
+  width: 400px;
+  height: 480px;
+  background-color: #f9f4f8;
+  margin: 30px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
 }
-#section_productos .productos_top .productos_top_box .top {
-  font-size: 15px;
-}
-#section_productos .productos_top .productos_top_box img {
+#contenedorProductos .cardsProductos .cardsProductosImg {
   width: 300px;
   height: 300px;
   border-radius: 10px;
+  margin-bottom: 15px;
 }
-#section_productos .productos_lima {
-  width: 80%;
-  height: 650px;
-  background-color: #f6f0f0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 100px;
-  margin-top: 100px;
-  border-radius: 15px;
-  box-shadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
-}
-#section_productos .productos_lima .productos_lima_art {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 90px;
-}
-#section_productos .productos_lima .productos_lima_box {
-  margin-top: -100px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 25px;
-  align-items: center;
-  text-align: center;
-}
-#section_productos .productos_lima .productos_lima_box img {
-  width: 300px;
-  height: auto;
-  border-radius: 10px;
-}
-#section_productos .productos_secador {
-  width: 80%;
-  height: 650px;
-  background-color: #f6f0f0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 100px;
-  margin-top: 100px;
-  border-radius: 15px;
-  box-shadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
-}
-#section_productos .productos_secador .productos_secador_art {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 90px;
-}
-#section_productos .productos_secador .productos_secador_box {
-  margin-top: -100px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 25px;
-  align-items: center;
-  text-align: center;
-}
-#section_productos .productos_secador .productos_secador_box img {
-  width: 300px;
-  height: auto;
-  border-radius: 10px;
-}
-
-.subscripcion {
-  background-color: #fee4f7;
-  width: 60%;
-  height: 300px;
-  text-align: center;
-  margin-top: 100px;
-  box-shadow: inset 1px 1px 5px 0 rgba(20, 20, 20, 0.2);
-  margin-left: 270px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.subscripcion .subscripcion_texto {
-  font-size: 2em;
-  padding: 15px;
-  font-family: "Courier New", Courier, monospace;
-  color: #f48080;
-}
-.subscripcion .formulario {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.subscripcion .formulario .formulario_nombre {
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  justify-content: center;
-  color: #624646;
-}
-.subscripcion .formulario .formulario_mail {
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  justify-content: center;
-  color: #624646;
-}
-.subscripcion .formulario .boton_enviar {
-  margin-top: 30px;
-  width: 130px;
+#contenedorProductos .cardsProductos .boton {
+  background-color: #89004f;
+  border-radius: 7px;
+  border: #89004f;
+  color: #f9f4f8;
   height: 30px;
-  background-color: #f7f6f6;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
 }
-.subscripcion .formulario .boton_enviar p {
+
+.carritoVisible {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 30px;
+  grid-template-areas: carrito;
+}
+.carritoVisible #carrito-title {
+  margin-right: 37px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 300;
+  text-decoration: underline;
   font-family: "Times New Roman", Times, serif;
-  font-size: large;
-  color: #624646;
+  color: #89004f;
+}
+.carritoVisible #total .card {
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+.carritoVisible #total .card .titulosCarrito {
+  text-decoration: underline;
+}
+.carritoVisible #total .card .carritoImg {
+  padding-top: 15px;
+  width: 120px;
+  height: 120px;
+}
+.carritoVisible #total .card .carritoProducto {
+  font-size: 17px;
+}
+.carritoVisible #resultadoTotal {
+  grid-template-areas: resultadoTotal;
 }
 
 .envios {
