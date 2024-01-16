@@ -24,15 +24,12 @@
         </article>
         <ul class="nav nav-underline">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Productos</a>
+                <a class="nav-link active" aria-current="page" href="#cuerpoProductos">Productos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#preguntas_frecuentes">Preguntas frecuentes</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="pages/como_comprar.html">Como comprar</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="pages/preguntas frecuentes.html">Preguntas frecuentes</a>
-            </li>
         </ul>
         </nav>
     </header>
@@ -53,53 +50,126 @@
 
                 </form>
             </article>
-            <article class="consulta">
-                <details class="consulta_box">
-                    <summary>Consultar descuentos</summary>
-                    <select name="" id="consultaMediosDePago">
-                        <option value="medio de pago">Medio de pago</option>
-                        <option value="mercado de pago"> Mercado de pago</option>
-                        <option value="efectivo">Efectivo</option>
-                        <option value="otro">Otro</option>
-                    </select>
-                    <div id="resultadoMediosDePago"></div>
-                </details>
-            </article>
-
+            <section class="informacion">
+                <article class="consulta">
+                    <details class="consulta_box">
+                        <summary>
+                            <img class="imagenSummary" src="imagenes/descuento.png" alt="">
+                            Consultar descuentos
+                        </summary>
+                        <select name="" id="consultaMediosDePago">
+                            <option value="medio de pago">Medio de pago</option>
+                            <option value="mercado de pago"> Mercado de pago</option>
+                            <option value="efectivo">Efectivo</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <div id="resultadoMediosDePago"></div>
+                    </details>
+                </article>
+                <article class="comoComprar" onclick="mostarPasosCompra()">
+                    <details class="consulta_box">
+                        <summary>
+                            <img class="imagenSummary" src="imagenes/pasos_compra.png" alt="">
+                            Como comprar
+                        </summary>
+                        <section id="comoComprar" style="display:none;">
+                            <ol>
+                                <li>
+                                    <p>Elige el producto que deseas comprar.</p>
+                                </li>
+                                <li>
+                                    <p>Haz clic en el botón de "Agregar al carrito".
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>Puedes seguir agregando otros productos al carrito o sino haz clic en "Compra".
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>Seleccione el medio de pago con el cual deseea abonar</p>
+                                </li>
+                                <li>
+                                    <p>Seleccione el destino de entrega o si quiere retirarlo en el local</p>
+                                </li>
+                                <li>
+                                    <p> Una vez seleecionado todo haz click en "Comprar"</p>
+                                </li>
+                            </ol>
+                        </section>
+                    </details>
+                </article>
+            </section>
         </section>
         <section class="compra">
             <div class="filtrar">
-                <button id="filtrarProductos">Filtrar</button>
+                <button class="botonesDeBusquedad" id="filtrarProductos" onclick="filtrarPorPrecio()">Menor a mayor
+                    precio</button>
+            </div>
+            <div>
+                <button class="botonesDeBusquedad" onclick="filtrarTops()">Tops</button>
+            </div>
+            <div>
+                <button class="botonesDeBusquedad" onclick="filtrarLimas()">Limas</button>
+            </div>
+            <div>
+                <button class="botonesDeBusquedad" onclick="filtrarCabinas()">Cabinas led</button>
             </div>
             <div id="buscar_productos">
                 <div>
                     <input type="text" id="buscar" placeholder="buscar">
-                    <button class="botonBuscar" onclick="buscarProducto()" type="button">Buscar</button>
+                    <button class="botonBuscar" type="button">Buscar</button>
                 </div>
 
             </div>
 
         </section>
-        <section class="cuerpoProductos">
+
+        <section id="cuerpoProductos">
             <section id="contenedorProductos"></section>
-            <article>
+            <article class="carrito">
                 <article id="carritoVisible" style="display: block;">
                     <p id="carrito-title" style="display: none;">Carrito</p>
                     <div id="total"></div>
                     <div id="resultadoParcial"></div>
                     <div id="descuento"></div>
                     <div id="resultadoTotal"></div>
+                    <div id="seleccionMedioDePago" style="margin-bottom:20px ;"></div>
+                    <div id="contenedorDestino"></div>
                     <div id="confirmarCompra">
-                        <button id="btnConfirmar" onclick="mostrarMensajeDeAgradecimiento()">Comprar</button>
+                        <button id="btnConfirmar" onclick="mostrarMensajeDeAgradecimiento()"
+                            style="display: none;">Comprar</button>
                     </div>
-                    <div id="seleccionMedioDePago"></div>
                 </article>
                 <article>
-                    <p id="mensajeDeAgradecimiento" style="display: none;">Su compra fue exitosa ¡Gracias por comprar en
+                    <p id="mensajeDeAgradecimiento" style="display: none;">Su compra fue
+                        exitosa ¡Gracias por
+                        comprar en
                         Meraki Nails!</p>
                 </article>
             </article>
 
+        </section>
+        <section id="preguntas_frecuentes">
+            <article class="preguntas_frecuentes_art">
+                <h2>PAGOS Y FACTURAS</h2>
+                <a href="#">Metodods de pagos</a>
+                <a href="#">Factura</a>
+            </article>
+            <article class="preguntas_frecuentes_art">
+                <h2>ENVIOS</h2>
+                <a href="#">¿A donde enviamos?</a>
+                <a href="#">Metodos, plazos y costos de envio</a>
+            </article>
+            <article class="preguntas_frecuentes_art">
+                <h2>DISPONIBILIDAD DE ARTICULOS</h2>
+                <a href="#">Consulte disponibilidad</a>
+            </article>
+            <article class="preguntas_frecuentes_art">
+                <h2>CONTACTO</h2>
+                <a href="#">Telefono</a>
+                <a href="#">Mail</a>
+                <a href="#">Ubicacion</a>
+            </article>
         </section>
         <section class="section_2">
             <article class="envios">
@@ -110,7 +180,9 @@
                 <hr>
                 <div class="calcular_envio">
                     <img class="envios_ubicacion" src="imagenes/ubicacion.png" alt="ubicacion">
+                    <p>Costo de envio</p>
                     <select name="destino" id="destino">
+
                         <option value="seleccionar provincia">Seleccionar provincia</option>
                         <option class="mendoza" value="mendoza">Mendoza</option>
                         <option class="cordoba" value="cordoba">Cordoba</option>
@@ -131,6 +203,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <footer id="footer">
         <div class="container my-5">
 
