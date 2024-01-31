@@ -1,5 +1,5 @@
 //BANNER
-
+localStorage.clear()
 let bannerDescuento = document.getElementById("bannerDescuento")
 let divDescuento = document.createElement("div")
 divDescuento.className = "bannerImg"
@@ -15,12 +15,7 @@ let hoy = new Date()
 console.log(hoy)
 let mostrarBannerSegunFecha = hoy.getDay()
 console.log(mostrarBannerSegunFecha)
-if (mostrarBannerSegunFecha === 5 || mostrarBannerSegunFecha === 6 || mostrarBannerSegunFecha === 0) {
-    bannerDescuento.appendChild(divDescuento)
-} else {
-    bannerSinDescuento.appendChild(divNormal)
-}
-
+mostrarBannerSegunFecha === 5 || mostrarBannerSegunFecha === 6 || mostrarBannerSegunFecha === 0 ? bannerDescuento.appendChild(divDescuento) : bannerSinDescuento.appendChild(divNormal)
 //CONSULTAS DESCUENTOS
 let consultaDescuento = document.getElementById("consultaMediosDePago")
 let resultadoDescuent = document.getElementById("resultadoMediosDePago")
@@ -48,42 +43,99 @@ consultaDescuento.addEventListener("change", function () {
 let formularioDeSubscripcion = document.getElementById("formulario")
 
 class cliente {
-    constructor(nombre, email, cumple) {
+    constructor(nombre, apellido, email, username) {
         this.nombre = nombre;
+        this.apellido = apellido;
         this.email = email;
-        this.cumple = cumple
+        this.username = username
     }
 }
 let arrayClientes = []
 
-let cumpleaños;
-formularioDeSubscripcion.addEventListener("submit", (event) => {
-    Swal.fire({
-        icon: "success",
-        text: "Su subscripcion fue enviada",
-        showConfirmButton: false,
-        timer: 1500,
-        backdrop: `
-                rgba(6,6,6, 0.7)`,
-    })
-    localStorage.clear()
-    event.preventDefault()
-    let nombre = document.querySelector("#nombre").value;
-    console.log("Nombre " + nombre)
-    let email = document.querySelector("#email").value;
-    console.log("Email" + email)
-    cumpleaños = document.querySelector("#cumpleaños").value;
-    console.log("Fecha de cumpleaños " + cumpleaños)
-    let cliente1 = new cliente(nombre, email, cumpleaños)
-    arrayClientes.push(cliente1);
-    localStorage.setItem('nombre', JSON.stringify(cliente1.nombre));
-    localStorage.setItem('email', JSON.stringify(cliente1.email));
-    localStorage.setItem('cumpleaños', JSON.stringify(cliente1.cumple));
-    console.log(arrayClientes)
-    formularioDeSubscripcion.reset()
-}
-)
 
+
+
+
+
+
+
+
+function mostrarFormulario() {
+    formularioDeSubscripcion.style.display = "block";
+}
+
+setTimeout(mostrarFormulario(), 1000)
+
+
+let username
+function obtenerDatosCliente() {
+    return new Promise((resolve, reject) => {
+        formularioDeSubscripcion.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const nombre = document.querySelector("#nombre").value;
+            const apellido = document.querySelector("#apellido").value;
+            console.log("Nombre y apellido: " + nombre + " " + apellido)
+            const email = document.querySelector("#email").value;
+            console.log("Email: " + email)
+            username = document.querySelector("#username").value;
+
+            const cliente1 = new cliente(nombre, apellido, email, username);
+            localStorage.setItem('cliente', JSON.stringify(cliente1));
+            mostrarNombreDeUsuario()
+            if (nombre && apellido && email && username) {
+                formularioDeSubscripcion.style.display = "none";
+                mostrarSaludo(username);
+                formularioDeSubscripcion.reset();
+                resolve("Su subscripción fue enviada");
+            } else {
+                reject("Por favor, complete el formulario");
+            }
+        });
+    });
+}
+
+obtenerDatosCliente()
+
+    .then((mensaje) => {
+        Swal.fire({
+            icon: "success",
+            text: "Su subscripcion fue enviada",
+            showConfirmButton: false,
+            timer: 1500,
+            backdrop: `rgba(6,6,6, 0.7)`,
+        });
+    })
+    .catch((error) => {
+        Swal.fire({
+            icon: "error",
+            text: error,
+            showConfirmButton: true,
+        });
+        formularioDeSubscripcion.style.display = "none";
+    });
+
+function sacarFormulario() {
+    const btnSalir = document.getElementById("btnSalir")
+    formularioDeSubscripcion.style.display = "none";
+}
+const saludo = document.getElementById("saludo");
+let indice = 0;
+
+function mostrarSaludo() {
+    const saludoNombre = "Hola" + " " + username + ", bienvenida/o a MerakiNails !!!";
+    saludo.textContent += saludoNombre[indice];
+    indice++;
+    if (indice < saludoNombre.length) {
+        setTimeout(mostrarSaludo, 100);
+    }
+
+}
+
+function mostrarNombreDeUsuario() {
+    const usuario = document.getElementsByClassName("nombreDeUsuario")[0]
+    usuario.textContent = `
+    ${username}`
+}
 
 //PRODUCTOS
 class producto {
@@ -108,7 +160,9 @@ let producto9 = new producto(9, "cabina", "Cabina de uñas 96w Gadnic", 35000, "
 
 
 let arrayProductos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9]
-const carrito = []
+let carrito = []
+
+
 
 
 function mostrarProductosFiltrados(productos) {
@@ -148,7 +202,6 @@ function filtrarCabinas() {
 }
 
 
-
 //FILTRAR PRODUCTOS
 
 let arrayProductosOriginal = [...arrayProductos];
@@ -172,7 +225,11 @@ mostrarProductosFiltrados(arrayProductos);
 
 let showTitle = false
 let seleccionDestinoVisible = false;
+let carritoLimpio = false
 //AGREGAR AL CARRITO
+
+
+
 
 function agregarACarrito(idProducto) {
     if (!showTitle) {
@@ -180,40 +237,51 @@ function agregarACarrito(idProducto) {
         document.getElementById("carrito-title").style.display = "block";
         showTitle = true
     }
-
     const agregarProducto = arrayProductos.find(producto => producto.id === idProducto)
     if (agregarProducto) {
         carrito.push(agregarProducto)
         actualizarCarrito()
+
     }
     localStorage.setItem('carrito', JSON.stringify(carrito))
     if (!seleccionDestinoVisible) {
         seleccionarDestino();
         seleccionDestinoVisible = true;
     }
+    if (!carritoLimpio) {
+        carritoVisible.style.display = "block"
+    }
 }
 
 function actualizarCarrito() {
     const resultado = document.getElementById("total")
     resultado.innerHTML = " ";
-
-    carrito.forEach(producto => {
+    carrito.forEach((producto, index) => {
         const card = document.createElement("div")
         card.classList.add("card")
         card.innerHTML =
-            `
+            `<button id="eliminarProductoCarrito" onclick="eliminarProducto(${index})">X</button>
             <img class="carritoImg" src="${producto.img}" >
             <h5 class="carritoProducto">${producto.producto}</h5>
-            <p>${"$" + producto.precio}</p>`
+            <p>${"$" + producto.precio}</p> <hr>
+            `
         resultado.appendChild(card)
     }
     )
+
     sumarTotalCarrito()
-
-
+    console.log(carrito)
 
 }
+
 mostrarProductosFiltrados(arrayProductos)
+
+function eliminarProducto(index) {
+    carrito.splice(index, 1)
+    actualizarCarrito()
+}
+
+
 
 function seleccionarMedioDePago() {
     const mediosDePago = document.getElementById("seleccionMedioDePago");
@@ -229,7 +297,6 @@ function seleccionarMedioDePago() {
             <option value="otro">Otro</option>
         </select>`
         ;
-
     mediosDePago.appendChild(seleccion);
 }
 
@@ -245,6 +312,7 @@ function calcularDescuentoSegunMedioDePago() {
         }
     }
 }
+
 
 function seleccionarDestino() {
     const destino = document.getElementById("contenedorDestino");
@@ -263,8 +331,8 @@ function seleccionarDestino() {
             <option value="retiro en el local">Retiro en el local</option>
         </select>`
         ;
-    destino.appendChild(seleccionarDestino)
 
+    destino.appendChild(seleccionarDestino)
 
 }
 
@@ -317,17 +385,14 @@ function aplicarDescuentoACarrito() {
     elementParcial.innerHTML = `<p>Subtotal $${totalSinDescuento}</p>`;
     elementDescuento.innerHTML = `<p>Descuento %${descuento * 100}</p>`;
     element.innerHTML = `<p>Total con descuento $${totalConDescuento + envios}</p>`;
-
-
-
+    localStorage.setItem('total de la compra', JSON.stringify(totalConDescuento + envios))
 }
 
 
 function mostrarBotonCompra() {
     document.getElementById("btnConfirmar").style.display = "block"
+
 }
-
-
 function mostrarMensajeDeAgradecimiento() {
     Swal.fire({
         title: "Confirmar compra?",
@@ -340,24 +405,30 @@ function mostrarMensajeDeAgradecimiento() {
     rgba(6,6,6,0.7)`
     }).then((result) => {
         if (result.isConfirmed) {
+            actualizarCarrito();
+            mostrarProductosFiltrados(arrayProductos);
             Swal.fire({
                 icon: "success",
                 title: "Compra confirmada!",
+                text: "Gracias por comprar en MerakiNails",
                 backdrop: `
-                rgba(6,6,6,0.7)`
+                rgba(6,6,6,0.7)`,
             });
         }
-    })
-    document.getElementById("mensajeDeAgradecimiento").style.display = "block";
-    setTimeout(() => {
-        document.getElementById("mensajeDeAgradecimiento").style.display = "none";
-    }, 9000);
-
-    document.getElementById("carritoVisible").style.display = "none"
+        console.log("Compra realizada con exito")
+        limpiarCarrito()
+    });
 }
+function limpiarCarrito() {
+    carritoVisible.style.display = "none"
+    carrito = []
+    localStorage.removeItem(`carrito`)
+    localStorage.removeItem(`destino de entrega`)
+    localStorage.removeItem(`total de la compra`)
+    console.log(carrito)
+    actualizarCarrito()
 
-
-
+}
 //CONSULTAR COSTO DE ENVIO
 let calcularPrecioDeEnvio = document.getElementById("destino")
 let resultadoEnvio = document.getElementById("resultadoEnvio")
@@ -384,16 +455,36 @@ calcularPrecioDeEnvio.addEventListener("change", function () {
     }
 })
 
-
-
-
-
-
-
-
-
 //COMO COMPRAR
 
 function mostarPasosCompra() {
     document.getElementById("comoComprar").style.display = "block";
+}
+
+
+
+
+//FETCH
+
+const contenedorDeComentarios = document.querySelector(".comentarios");
+
+fetch('https://jsonplaceholder.typicode.com/comments')
+    .then((resp) => resp.json())
+    .then((data) => {
+        console.log(data)
+        mostrarComentarios(data)
+    })
+    .catch(error => console.log(error))
+    .finally(() => console.log("proceso fianlizado"))
+
+function mostrarComentarios(datos) {
+    datos.filter(comment => comment.id < 10).forEach(comment => {
+        const comentario = document.createElement(`div`)
+        comentario.innerHTML = `
+        <p>${comment.email}</p>
+        <p>${comment.body}</p>`
+        contenedorDeComentarios.appendChild(comentario)
+
+    })
+
 }

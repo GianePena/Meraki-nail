@@ -16,9 +16,8 @@
         <article class="cabecera">
             <h1>MERAKI</h1>
             <article class="logos_header">
-                <a href="#"><img src="imagenes/usuario.png" alt="usuario"></a>
-                <a href="#"><img src="imagenes/busqueda.png" alt="lupa"></a>
-                <a href="#"><img src="imagenes/compra.png" alt="compra"></a>
+                <img class="lupa" src="imagenes/usuario.png" alt="usuario">
+                <div class="nombreDeUsuario"></div>
                 <nav class="barrra_nav">
             </article>
         </article>
@@ -36,20 +35,24 @@
     <div id="bannerDescuento"></div>
     <div id="bannerSinDescuento"></div>
     <main>
-        <section class="seccion1">
-            <article class="subscribirse">
-                <form action="" id="formulario">
-                    <p>Subscribirse</p>
-                    <label for="nombre">Nombre</label>
-                    <input id="nombre" type="text">
-                    <label for="email">Email</label>
-                    <input id="email" type="text"><br>
-                    <label for="fecha de cumpleaños">Fecha de cumpleaños: mes/dia</label>
-                    <input id="cumpleaños" type="text"><br>
-                    <button class="enviarFormulario" type="submit">enviar</button>
+        <article class="subscribirse">
 
-                </form>
-            </article>
+            <form action="" style="display:none;" id="formulario">
+                <button id="btnSalir" onclick="sacarFormulario()">X</button>
+                <p>Subscribirse</p>
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text">
+                <label for="apellido">Apellido</label>
+                <input id="apellido" type="text">
+                <label for="email">Email</label>
+                <input id="email" type="text"><br>
+                <label for="username"> Nombre de usuario</label>
+                <input id="username" type="text"><br>
+                <button class="enviarFormulario" type="submit">enviar</button>
+
+            </form>
+        </article>
+        <section class="seccion1">
             <section class="informacion">
                 <article class="consulta">
                     <details class="consulta_box">
@@ -99,7 +102,14 @@
                     </details>
                 </article>
             </section>
+            <article>
+                <p id="mensajeDeAgradecimiento" style="display: none;">Su compra fue
+                    exitosa ¡Gracias por
+                    comprar en
+                    Meraki Nails!</p>
+            </article>
         </section>
+        <h1 id="saludo"></h1>
         <section class="compra">
             <div class="filtrar">
                 <button class="botonesDeBusquedad" id="filtrarProductos" onclick="filtrarPorPrecio()">Menor a mayor
@@ -113,13 +123,6 @@
             </div>
             <div>
                 <button class="botonesDeBusquedad" onclick="filtrarCabinas()">Cabinas led</button>
-            </div>
-            <div id="buscar_productos">
-                <div>
-                    <input type="text" id="buscar" placeholder="buscar">
-                    <button class="botonBuscar" type="button">Buscar</button>
-                </div>
-
             </div>
 
         </section>
@@ -140,15 +143,12 @@
                             style="display: none;">Comprar</button>
                     </div>
                 </article>
-                <article>
-                    <p id="mensajeDeAgradecimiento" style="display: none;">Su compra fue
-                        exitosa ¡Gracias por
-                        comprar en
-                        Meraki Nails!</p>
-                </article>
             </article>
 
         </section>
+        <h4>Comentarios</h4>
+        <article class="comentarios">
+        </article>
         <section id="preguntas_frecuentes">
             <article class="preguntas_frecuentes_art">
                 <h2>PAGOS Y FACTURAS</h2>

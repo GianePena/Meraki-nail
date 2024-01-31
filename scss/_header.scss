@@ -1,3 +1,10 @@
+.nombreDeUsuario {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    color: rgb(74, 74, 74);
+}
+
 #header {
     display: flex;
     flex-direction: column;
@@ -22,13 +29,14 @@
         .logos_header {
             display: flex;
             flex-direction: row;
-            gap: 30px;
             margin-left: 50px;
 
             img {
                 width: 30px;
                 height: 30px;
                 opacity: 0.6;
+                margin-left: 20px;
+                padding-right: 5px;
 
             }
         }
